@@ -1,6 +1,7 @@
 #root {
   height: 100vh;
   display: flex;
+  position: relative;
   flex-direction: column;
 }
 main {
@@ -10,5 +11,4 @@ main {
 nav {
   height: 100%;
   margin: 0;
-  flex-flow: column;
 }

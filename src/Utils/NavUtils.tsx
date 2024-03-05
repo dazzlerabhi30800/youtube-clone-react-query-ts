@@ -37,3 +37,10 @@ export const NavbarUtils: NavbarInter[] = [
   { name: "Help", icon: <FiHelpCircle />, type: "menu" },
   { name: "Send feedback", icon: <RiFeedbackLine />, type: "menu" },
 ];
+
+export const NavbarMobileUtils: NavbarInter[] = [
+  { name: "New", icon: <AiFillHome />, type: "home" },
+  { name: "Trending", icon: <MdLocalFireDepartment />, type: "category" },
+  { name: "Live", icon: <MdLiveTv />, type: "category" },
+  { name: "Gaming", icon: <IoGameControllerSharp />, type: "category" },
+];

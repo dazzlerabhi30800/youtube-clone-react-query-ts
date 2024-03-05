@@ -2,11 +2,11 @@ import { useVideoContext, videocontext } from "../Context/Context";
 import { NavbarUtils } from "../Utils/NavUtils";
 
 export default function Navbar() {
-  const { setCategory } = useVideoContext() as videocontext;
+  const { category, setCategory } = useVideoContext() as videocontext;
   const handleCategory = (cat: string, type: string) => {
     switch (type) {
       case "home":
-        setCategory("");
+        setCategory("New");
         break;
       case "category":
         setCategory(cat);
@@ -16,11 +16,13 @@ export default function Navbar() {
     }
   };
   return (
-    <nav className="flex flex-col bg-gray-700 w-fit justify-between border-t border-black">
+    <nav className="flex flex-col bg-neutral-900 w-fit justify-between">
       {NavbarUtils.map((nav, index) => (
         <div
           key={index}
-          className="flex items-center gap-3 py-4 px-6 hover:bg-gray-500 cursor-pointer"
+          className={`flex items-center gap-3 py-4 px-6 hover:bg-neutral-800 hover:text-accent-color cursor-pointer ${
+            category === nav.name && "bg-neutral-800 text-accent-color"
+          }`}
           onClick={() => handleCategory(nav.name, nav.type)}
         >
           <span className="text-base md:text-2xl">{nav.icon}</span>

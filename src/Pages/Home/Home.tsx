@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useVideoContext, videocontext } from "../../Context/Context";
+import { useVideoContext } from "../../Context/Context";
 
 export default function HomePage() {
-  const { setCategory } = useVideoContext() as videocontext;
+  const { setCategory } = useVideoContext();
   return (
     <div className="flex flex-col gap-5 items-center">
       <h1>Home Page</h1>

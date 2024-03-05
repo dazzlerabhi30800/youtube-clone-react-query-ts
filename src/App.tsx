@@ -4,13 +4,16 @@ import HomePage from "./Pages/Home/Home";
 import VideoPage from "./Pages/Video/Video";
 import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
+import Resize from "./Utils/Resize";
+import { NavMobile } from "./Components/NavMobile";
 
 function App() {
+  const { resize } = Resize();
   return (
     <>
       <Header />
       <main className="flex">
-        <Navbar />
+        {resize < 700 ? <NavMobile /> : <Navbar />}
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
