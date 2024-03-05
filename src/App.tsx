@@ -6,11 +6,20 @@ import Header from "./Components/Header";
 import Navbar from "./Components/Navbar";
 import Resize from "./Utils/Resize";
 import { NavMobile } from "./Components/NavMobile";
+import LoadingBar from "react-top-loading-bar";
+import { useVideoContext } from "./Context/Context";
 
 function App() {
   const { resize } = Resize();
+  const {  progress, setProgress } = useVideoContext();
   return (
     <>
+      <LoadingBar
+        color="#DB6FFA"
+        progress={progress}
+        transitionTime={800}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Header />
       <main className="flex">
         {resize < 700 ? <NavMobile /> : <Navbar />}
