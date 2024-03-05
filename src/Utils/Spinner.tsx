@@ -1,3 +1,3 @@
 export default function Spinner() {
-  return <span className="loader"></span>;
+  return <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 }

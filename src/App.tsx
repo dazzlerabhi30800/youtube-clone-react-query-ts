@@ -11,7 +11,7 @@ import { useVideoContext } from "./Context/Context";
 
 function App() {
   const { resize } = Resize();
-  const {  progress, setProgress } = useVideoContext();
+  const { progress, setProgress } = useVideoContext();
   return (
     <>
       <LoadingBar
@@ -22,10 +22,11 @@ function App() {
       />
       <Header />
       <main className="flex">
-        {resize < 700 ? <NavMobile /> : <Navbar />}
         <Router>
+          {resize < 700 ? <NavMobile /> : <Navbar />}
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/:category" element={<HomePage />} />
             <Route path="/video/:id" element={<VideoPage />} />
           </Routes>
         </Router>
