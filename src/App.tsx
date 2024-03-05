@@ -8,6 +8,7 @@ import Resize from "./Utils/Resize";
 import { NavMobile } from "./Components/NavMobile";
 import LoadingBar from "react-top-loading-bar";
 import { useVideoContext } from "./Context/Context";
+// import VideoCategory from "./Pages/VideoCategory";
 
 function App() {
   const { resize } = Resize();
@@ -26,7 +27,7 @@ function App() {
           {resize < 700 ? <NavMobile /> : <Navbar />}
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/:category" element={<HomePage />} />
+            {/* <Route path="/category/:category" element={<VideoCategory />} /> */}
             <Route path="/video/:id" element={<VideoPage />} />
           </Routes>
         </Router>

@@ -1,18 +1,20 @@
 import { VideoComp } from "./VideoComp";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import {  fetchHome } from "../../Functions/FetchFunc";
+import { fetchCategory, fetchHome } from "../../Functions/FetchFunc";
 import Spinner from "../../Utils/Spinner";
+import { useVideoContext } from "../../Context/Context";
 
 export default function HomePage() {
-
+  const { category } = useVideoContext();
   const { data: videoData, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ["videos"],
+    queryKey: ["videos", category],
     initialPageParam: 1,
-    queryFn: fetchHome,
+    queryFn: () => fetchCategory(category),
     getNextPageParam: (lastPage) => {
       return lastPage?.cursorNext;
     },
     staleTime: 1000 * 60 * 5,
+    enabled: !!category,
   });
 
   return (

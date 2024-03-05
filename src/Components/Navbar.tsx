@@ -9,11 +9,9 @@ export default function Navbar() {
     switch (type) {
       case "home":
         setCategory("New");
-        navigate("/");
         break;
       case "category":
         setCategory(cat);
-        navigate(`/${cat}`);
         break;
       default:
         break;
