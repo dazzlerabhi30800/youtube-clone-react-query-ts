@@ -20,7 +20,7 @@ export default function Navbar() {
       {NavbarUtils.map((nav, index) => (
         <div
           key={index}
-          className={`flex items-center gap-3 py-4 px-6 hover:bg-neutral-800 hover:text-accent-color cursor-pointer ${
+          className={`flex items-center gap-3 py-4 px-6 hover:bg-zinc-800 hover:text-accent-color cursor-pointer ${
             category === nav.name && "bg-neutral-800 text-accent-color"
           }`}
           onClick={() => handleCategory(nav.name, nav.type)}

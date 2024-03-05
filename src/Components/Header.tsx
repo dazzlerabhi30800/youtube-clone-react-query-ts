@@ -10,7 +10,7 @@ export default function Header() {
     console.log("form submitted");
   };
   return (
-    <header className="flex justify-between items-center bg-zinc-800 shadow-md text-white p-3  md:p-4">
+    <header className="flex justify-between items-center bg-zinc-900 shadow-md text-white p-3  md:p-4">
       {resize < 600 && search ? (
         ""
       ) : (

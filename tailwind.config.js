@@ -9,6 +9,16 @@ export default {
       screens: {
         sm: "600px",
       },
+      fontSize: {
+        small: "14px",
+      },
+      fontFamily: {
+        quicksand: ["Quicksand", "sans-serif"],
+      },
+      size: {
+        5: "5px",
+        25: "25px",
+      },
     },
   },
   plugins: [],
