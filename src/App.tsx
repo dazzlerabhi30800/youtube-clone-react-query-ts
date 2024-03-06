@@ -18,7 +18,7 @@ function App() {
       <LoadingBar
         color="#DB6FFA"
         progress={progress}
-        transitionTime={800}
+        waitingTime={1000}
         onLoaderFinished={() => setProgress(0)}
       />
       <Header />
@@ -27,7 +27,6 @@ function App() {
           {resize < 700 ? <NavMobile /> : <Navbar />}
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* <Route path="/category/:category" element={<VideoCategory />} /> */}
             <Route path="/video/:id" element={<VideoPage />} />
           </Routes>
         </Router>

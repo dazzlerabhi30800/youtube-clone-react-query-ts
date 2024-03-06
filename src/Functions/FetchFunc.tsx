@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const options = {
   method: "GET",
   headers: {
@@ -38,3 +40,17 @@ export const formatViews = (view: number) => {
   }
   return formatViews;
 }
+
+
+
+
+export const handleCategory = (cat: string, type: string) => {
+  switch (type) {
+    case "home":
+      return "New"
+    case "category":
+      return cat;
+    default:
+      break;
+  }
+};

@@ -1,13 +1,17 @@
-import { FormEvent } from "react";
+import { FormEvent, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import Resize from "../Utils/Resize";
 import { useVideoContext } from "../Context/Context";
 export default function Header() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const { resize } = Resize();
-  const { search, setSearch } = useVideoContext();
+  const { search, setSearch, setCategory } = useVideoContext();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("form submitted");
+    if (!inputRef.current) return;
+    if (inputRef.current.value.length < 4) return;
+    setCategory(inputRef.current.value)
+    inputRef.current.value = "";
   };
   return (
     <header className="flex justify-between items-center bg-zinc-900 shadow-md text-white p-3  md:p-4">
@@ -20,12 +24,12 @@ export default function Header() {
       )}
       <form
         onSubmit={handleSubmit}
-        className={`flex items-center gap-3 md:text-lg ${
-          search && resize < 600 ? "flex-1" : "flex-initial"
-        } sm:flex-initial`}
+        className={`flex items-center gap-3 md:text-lg ${search && resize < 600 ? "flex-1" : "flex-initial"
+          } sm:flex-initial`}
       >
         {search && (
           <input
+            ref={inputRef}
             type="text"
             placeholder="Enter your search"
             className="bg-none border border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1"

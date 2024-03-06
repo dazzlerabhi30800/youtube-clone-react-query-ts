@@ -24,7 +24,7 @@ export default function VideoContextProvider({
 }) {
   const [category, setCategory] = useState<string>("New");
   const [search, setSearch] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(100);
+  const [progress, setProgress] = useState<number>(10);
 
   return (
     <VideoContext.Provider
