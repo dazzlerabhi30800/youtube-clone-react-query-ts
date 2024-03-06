@@ -35,6 +35,7 @@ export default function Header() {
           <input
             ref={inputRef}
             type="text"
+            autoFocus={true}
             placeholder="Enter your search"
             className="bg-none border border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1"
           />
