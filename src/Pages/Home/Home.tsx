@@ -17,12 +17,12 @@ export default function HomePage() {
     initialPageParam: 1,
     queryFn: () => {
       setProgress(100);
-      return fetchCategory(category)
+      return fetchCategory(category);
     },
     getNextPageParam: (lastPage) => {
       return lastPage?.cursorNext;
     },
-    staleTime: 1000 * 60 * 5,
+    staleTime: category === "New" ? 1000 * 60 * 8 : Infinity,
     enabled: !!category,
   });
 
@@ -31,10 +31,9 @@ export default function HomePage() {
       <div className="flex flex-wrap items-start gap-8 justify-center sm:justify-start w-full flex-1 p-5">
         {isLoading && <Spinner />}
         {videoData?.pages.map((page) =>
-          page?.contents.map((video: videoType
-            , index: number) => (
+          page?.contents.map((video: videoType, index: number) => (
             <VideoComp key={index} data={video.video} />
-          ))
+          )),
         )}
       </div>
       {isFetchingNextPage ? (

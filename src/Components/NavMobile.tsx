@@ -10,10 +10,11 @@ export const NavMobile = () => {
         <button
           onClick={() => {
             navigate("/");
-            setCategory(util.name)
+            setCategory(util.name);
           }}
-          className={`py-3 px-6 text-2xl flex justify-center hover:bg-neutral-800 hover:text-accent-color flex-1 ${category === util.name && "bg-neutral-800 text-accent-color"
-            }`}
+          className={`py-3 px-6 text-2xl flex justify-center hover:bg-neutral-800 hover:text-accent-color flex-1 ${
+            category === util.name && "text-accent-color"
+          }`}
           key={index}
         >
           {util.icon}
