@@ -34,7 +34,7 @@ export default function Header() {
             onKeyUp={handleSubmit}
             ref={inputRef}
             type="text"
-            onBlur={() => setSearch((prev) => (prev = false))}
+            onBlur={() => setSearch(false)}
             autoFocus={search}
             placeholder="Enter your search"
             className={`bg-transparent border text-white border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1`}
