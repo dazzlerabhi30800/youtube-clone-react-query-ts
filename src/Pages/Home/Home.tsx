@@ -27,7 +27,7 @@ export default function HomePage() {
   });
 
   return (
-    <section className="flex flex-col py-10 md:py-2 gap-8 items-center gap-8 flex-1 overflow-y-scroll">
+    <section className="flex flex-col py-10 md:py-2 gap-8 items-center gap-8 flex-1 overflow-y-scroll scroll-smooth">
       <div className="flex flex-wrap items-start gap-8 justify-center sm:justify-start w-full flex-1 p-5">
         {isLoading && <Spinner />}
         {videoData?.pages.map((page) =>
