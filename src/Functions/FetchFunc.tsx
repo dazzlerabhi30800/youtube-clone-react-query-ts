@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 
 const options = {
   method: "GET",
@@ -22,6 +21,21 @@ export const fetchCategory = async (category: string) => {
   return result;
 }
 
+export const fetchVideoById = async (id: string) => {
+  if (!id) return;
+  const response = await fetch(`https://youtube138.p.rapidapi.com/video/details/?id=${id}&hl=en&gl=US`, options);
+  const result = await response.json();
+  return result;
+}
+
+
+export const fetchRelatedVideo = async (id: string) => {
+  if (!id) return;
+  const response = await fetch(`https://youtube138.p.rapidapi.com/video/related-contents/?id=${id}&hl=en&gl=US`, options);
+  const result = await response.json();
+  return result;
+}
+
 export const formatTime = (time: number) => {
   const minutes = time >= 3600 ? Math.floor(time % 60) : Math.floor(time / 60);
   const hours = Math.floor(time / 3600);
@@ -31,7 +45,7 @@ export const formatTime = (time: number) => {
 
 
 export const formatViews = (view: number) => {
-  let formatViews;
+  let formatViews: string | number = view;
   if (view >= 1000) {
     formatViews = (view / 1000).toFixed(1) + "K";
   }

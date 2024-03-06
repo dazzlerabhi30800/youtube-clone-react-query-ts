@@ -1,16 +1,19 @@
 import { FormEvent, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
+import { CiMenuBurger } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 import Resize from "../Utils/Resize";
 import { useVideoContext } from "../Context/Context";
 export default function Header() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { resize } = Resize();
-  const { search, setSearch, setCategory } = useVideoContext();
+  const { search, setSearch, setCategory, setShowMenu, showMenu } =
+    useVideoContext();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputRef.current) return;
     if (inputRef.current.value.length < 4) return;
-    setCategory(inputRef.current.value)
+    setCategory(inputRef.current.value);
     inputRef.current.value = "";
   };
   return (
@@ -24,8 +27,9 @@ export default function Header() {
       )}
       <form
         onSubmit={handleSubmit}
-        className={`flex items-center gap-3 md:text-lg ${search && resize < 600 ? "flex-1" : "flex-initial"
-          } sm:flex-initial`}
+        className={`flex items-center gap-3 md:text-lg ${
+          search && resize < 600 ? "flex-1" : "flex-initial"
+        } sm:flex-initial`}
       >
         {search && (
           <input
@@ -42,6 +46,15 @@ export default function Header() {
         >
           <FaSearch />
         </button>
+        {resize > 700 && (
+          <button
+            type="button"
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="text-white  text-xl md:text-2xl hover:text-accent-color ml-4"
+          >
+            {showMenu ? <IoMdClose /> : <CiMenuBurger />}
+          </button>
+        )}
       </form>
     </header>
   );
