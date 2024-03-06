@@ -32,7 +32,7 @@ export default function Header() {
           ref={inputRef}
           type="text"
           placeholder="Enter your search"
-          className={`bg-none border text-black border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1`}
+          className={`bg-transparent border text-black border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1`}
         />
 
         {resize > 700 && (
