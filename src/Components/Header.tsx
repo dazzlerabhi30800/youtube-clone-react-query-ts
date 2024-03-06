@@ -25,21 +25,27 @@ export default function Header() {
           U{resize > 600 && <span>tube</span>}
         </h1>
       )}
-      <form
-        onSubmit={handleSubmit}
+      <div
         className={`flex items-center gap-3 md:text-lg ${
           search && resize < 600 ? "flex-1" : "flex-initial"
         } sm:flex-initial`}
       >
-        {search && (
-          <input
-            ref={inputRef}
-            type="text"
-            autoFocus={true}
-            placeholder="Enter your search"
-            className="bg-none border border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1"
-          />
-        )}
+        <form
+          onSubmit={handleSubmit}
+          className={`flex items-center gap-3 md:text-lg ${
+            search && resize < 600 ? "flex-1" : "flex-initial"
+          } sm:flex-initial`}
+        >
+          {search && (
+            <input
+              ref={inputRef}
+              type="text"
+              autoFocus={true}
+              placeholder="Enter your search"
+              className="bg-none border border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1"
+            />
+          )}
+        </form>
         <button
           type="button"
           onClick={() => resize < 600 && setSearch((prev) => !prev)}
@@ -56,7 +62,7 @@ export default function Header() {
             {showMenu ? <IoMdClose /> : <CiMenuBurger />}
           </button>
         )}
-      </form>
+      </div>
     </header>
   );
 }
