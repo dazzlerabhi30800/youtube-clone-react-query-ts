@@ -11,7 +11,7 @@ export default function RelatedVideo({ id }: { id: string }) {
     })
     if (isLoading) return <Spinner />
     return (
-        <div className="flex flex-col rounded-xl gap-4 p-2 items-center bg-neutral-900">
+        <div className="flex flex-col rounded-xl gap-4 p-2 items-center bg-neutral-900 mb-20 md:mb-0">
             {relatedData?.contents.map((data: any, index: number) => (
                 <VideoComp key={index} data={data.video} />
             ))}

@@ -10,9 +10,11 @@ export type videocontext = {
   category: string;
   showMenu: boolean;
   progress: number;
+  search: boolean;
   setCategory: React.Dispatch<SetStateAction<string>>;
   setProgress: React.Dispatch<SetStateAction<number>>;
   setShowMenu: React.Dispatch<SetStateAction<boolean>>;
+  setSearch: React.Dispatch<SetStateAction<boolean>>;
 };
 
 export const VideoContext = createContext<videocontext | null>(null);
@@ -25,6 +27,7 @@ export default function VideoContextProvider({
   const [category, setCategory] = useState<string>("New");
   const [progress, setProgress] = useState<number>(10);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [search, setSearch] = useState<boolean>(false);
 
   return (
     <VideoContext.Provider
@@ -35,6 +38,8 @@ export default function VideoContextProvider({
         setProgress,
         showMenu,
         setShowMenu,
+        search,
+        setSearch,
       }}
     >
       {children}

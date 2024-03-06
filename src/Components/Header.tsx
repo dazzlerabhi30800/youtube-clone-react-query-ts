@@ -3,10 +3,12 @@ import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 import Resize from "../Utils/Resize";
 import { useVideoContext } from "../Context/Context";
+import { FaSearch } from "react-icons/fa";
 export default function Header() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { resize } = Resize();
-  const { setCategory, setShowMenu, showMenu } = useVideoContext();
+  const { search, setSearch, setCategory, setShowMenu, showMenu } =
+    useVideoContext();
   const handleSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key !== "Enter") return;
@@ -24,17 +26,29 @@ export default function Header() {
 
       <div
         className={`flex items-center gap-3 md:text-lg ${
-          resize < 600 ? "flex-1" : "flex-initial"
+          resize < 600 && search ? "flex-1" : "flex-initial"
         } sm:flex-initial`}
       >
-        <input
-          onKeyUp={handleSubmit}
-          ref={inputRef}
-          type="text"
-          placeholder="Enter your search"
-          className={`bg-transparent border text-white border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1`}
-        />
-
+        {search && (
+          <input
+            onKeyUp={handleSubmit}
+            ref={inputRef}
+            type="text"
+            onBlur={() => setSearch((prev) => (prev = false))}
+            autoFocus={search}
+            placeholder="Enter your search"
+            className={`bg-transparent border text-white border-gray-500 rounded-md py-2 px-4 focus:border-gray-400 outline-none transition ease-in-out duration-300 flex-1`}
+          />
+        )}
+        <button
+          type="button"
+          onClick={() => setSearch((prev) => !prev)}
+          className={`py-2 px-2 text-white ${
+            search ? "self-start hidden" : "self-end flex"
+          }`}
+        >
+          <FaSearch />
+        </button>
         {resize > 700 && (
           <button
             type="button"
