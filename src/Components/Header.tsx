@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className="flex gap-5 justify-between items-center bg-zinc-900 shadow-md text-white p-3  md:p-4">
       <h1 className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold">
-        U{resize > 600 && <span>tube</span>}
+        U{resize > 600 || !search ? <span>tube</span> : ""}
       </h1>
 
       <div

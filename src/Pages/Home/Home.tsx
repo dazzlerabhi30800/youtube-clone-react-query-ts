@@ -31,7 +31,8 @@ export default function HomePage() {
       <div className="flex flex-wrap items-start gap-8 justify-center sm:justify-start w-full flex-1 p-5">
         {isLoading && <Spinner />}
         {videoData?.pages.map((page) =>
-          page?.contents.map((video: any, index: number) => (
+          page?.contents.map((video: videoType
+            , index: number) => (
             <VideoComp key={index} data={video.video} />
           ))
         )}

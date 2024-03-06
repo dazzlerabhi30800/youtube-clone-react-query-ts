@@ -21,7 +21,12 @@ export default function VideoDetails({ id }: { id: string }) {
         {videoData?.title}
       </h1>
       <p>{videoData?.description.substring(0, 300)} ...</p>
-      {/* Stats */}
+      <p className="font-semibold">
+        Uploaded :- {" "} 
+        <span className="font-medium text-white">
+          {new Date(videoData?.publishedDate).toLocaleString()}
+        </span>
+      </p>
       <div className="flex items-center gap-8 py-2 text-lg md:text-xl">
         <span className="flex items-center gap-2">
           <FaMessage color="#7EF867" />
