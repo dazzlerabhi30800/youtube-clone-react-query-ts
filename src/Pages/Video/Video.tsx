@@ -13,7 +13,7 @@ export default function VideoPage() {
         <div className="flex flex-col gap-4 w-full flex-1">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${id}`}
-            playing={true}
+            playing={false}
             controls={true}
             className="reactPlayer"
             width="100%"

@@ -15,6 +15,7 @@ export type videocontext = {
   setProgress: React.Dispatch<SetStateAction<number>>;
   setShowMenu: React.Dispatch<SetStateAction<boolean>>;
   setSearch: React.Dispatch<SetStateAction<boolean>>;
+  // debounce: (callback: () => void, delay: number) => void;
 };
 
 export const VideoContext = createContext<videocontext | null>(null);
@@ -28,6 +29,17 @@ export default function VideoContextProvider({
   const [progress, setProgress] = useState<number>(10);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [search, setSearch] = useState<boolean>(false);
+
+  // function for debouncing
+  // const debounce = (callback: (...args: any) => void, delay: number) => {
+  //   let time: any;
+  //   return function (...args: any) {
+  //     clearTimeout(time);
+  //     time = setTimeout(() => {
+  //       callback(...args);
+  //     }, delay);
+  //   };
+  // };
 
   return (
     <VideoContext.Provider

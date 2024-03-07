@@ -26,7 +26,6 @@ export default function Header() {
       >
         U{resize > 600 || !search ? <span>tube</span> : ""}
       </a>
-
       <div
         className={`flex items-center gap-3 md:text-lg ${
           resize < 600 && search ? "flex-1" : "flex-initial"

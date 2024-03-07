@@ -32,7 +32,7 @@ export default function HomePage() {
         {isLoading && <Spinner />}
         {videoData?.pages.map((page) =>
           page?.contents.map((video: videoType, index: number) => (
-            <VideoComp key={index} data={video.video} />
+            <VideoComp key={index} data={video.video} show={true} />
           )),
         )}
       </div>

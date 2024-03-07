@@ -5,6 +5,9 @@
   /* font-family: "Quicksand", sans-serif; */
   font-family: "IBM Plex Sans", sans-serif;
 }
+:root {
+  --banner-img: red;
+}
 #root {
   height: 100vh;
   display: flex;
@@ -88,6 +91,17 @@ nav {
 .video--section {
   flex-direction: column;
 }
+
+/* Channel Styling */
+.channel-comp {
+  display: flex;
+  height: 250px;
+  width: 100%;
+}
+.channel--info {
+  height: fit-content;
+}
+
 @media Screen and (width > 900px) {
   .reactPlayer {
     height: 460px !important;
@@ -95,14 +109,19 @@ nav {
   .video--section {
     flex-direction: row;
   }
+  .channel-comp {
+    height: 300px;
+  }
 }
 
 @media Screen and (width > 1100px) {
   .reactPlayer {
     height: 500px !important;
   }
+  .channel-comp {
+    height: 350px;
+  }
 }
-
 
 @media Screen and (width > 1300px) {
   .reactPlayer {

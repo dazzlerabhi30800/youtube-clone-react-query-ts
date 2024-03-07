@@ -18,6 +18,7 @@ export default {
       size: {
         5: "5px",
         25: "25px",
+        35: "35px",
       },
     },
   },
