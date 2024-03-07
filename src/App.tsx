@@ -14,6 +14,7 @@ import Channel from "./Pages/Channel/Channel";
 function App() {
   const { resize } = Resize();
   const { progress, setProgress } = useVideoContext();
+  console.log("hello");
   return (
     <>
       <LoadingBar
