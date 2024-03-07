@@ -18,10 +18,10 @@ export const VideoComp = ({
     stats,
   } = data;
   return (
-    <div className="flex flex-col w-fit p-2 w-[90%] sm:w-[300px] relative">
-      <Link to={`/video/${videoId}`}>
+    <div className="flex flex-col w-fit p-2 w-[90%] sm:w-[320px] relative">
+      <Link to={`/video/${videoId}`} className="w-full flex-1">
         <img
-          className="h-40 rounded-md object-cover"
+          className="h-40 rounded-md object-cover w-full"
           src={thumbnails[1]?.url || thumbnails[0]?.url}
           loading="lazy"
           alt={title}
