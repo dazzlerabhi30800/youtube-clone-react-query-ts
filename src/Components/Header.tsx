@@ -20,6 +20,15 @@ export default function Header() {
   };
   return (
     <header className="flex gap-5 justify-between items-center bg-zinc-900 shadow-md text-white p-3  md:p-4">
+      {resize > 700 && (
+        <button
+          type="button"
+          onClick={() => setShowMenu((prev) => !prev)}
+          className="text-white  text-xl md:text-2xl hover:text-accent-color ml-4"
+        >
+          {showMenu ? <IoMdClose /> : <CiMenuBurger />}
+        </button>
+      )}
       <a
         href="/"
         className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold"
@@ -51,15 +60,6 @@ export default function Header() {
         >
           <FaSearch />
         </button>
-        {resize > 700 && (
-          <button
-            type="button"
-            onClick={() => setShowMenu((prev) => !prev)}
-            className="text-white  text-xl md:text-2xl hover:text-accent-color ml-4"
-          >
-            {showMenu ? <IoMdClose /> : <CiMenuBurger />}
-          </button>
-        )}
       </div>
     </header>
   );
