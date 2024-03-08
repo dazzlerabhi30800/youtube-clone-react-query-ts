@@ -33,7 +33,8 @@ export default function Header() {
         href="/"
         className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold"
       >
-        U{resize > 600 || !search ? <span>tube</span> : ""}
+        <img src="./logo.svg" alt="UTube" />
+        {resize > 600 || !search ? <span>tube</span> : ""}
       </a>
       <div
         className={`flex items-center gap-3 md:text-lg ${
