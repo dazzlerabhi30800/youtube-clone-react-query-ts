@@ -20,22 +20,25 @@ export default function Header() {
   };
   return (
     <header className="flex gap-5 justify-between items-center bg-zinc-900 shadow-md text-white p-3  md:p-4">
-      {resize > 700 && (
-        <button
-          type="button"
-          onClick={() => setShowMenu((prev) => !prev)}
-          className="text-white  text-xl md:text-2xl hover:text-accent-color ml-4"
+      <div className="flex items-center gap-3">
+        {resize > 700 && (
+          <button
+            type="button"
+            onClick={() => setShowMenu((prev) => !prev)}
+            className="text-white  text-xl md:text-2xl hover:text-accent-color ml-4"
+          >
+            {showMenu ? <IoMdClose /> : <CiMenuBurger />}
+          </button>
+        )}
+        <a
+          href="/"
+          className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold"
         >
-          {showMenu ? <IoMdClose /> : <CiMenuBurger />}
-        </button>
-      )}
-      <a
-        href="/"
-        className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold"
-      >
-        <img src="./logo.svg" alt="UTube" />
-        {resize > 600 || !search ? <span>tube</span> : ""}
-      </a>
+          <img src="./logo.svg" alt="UTube" />
+          {resize > 600 || !search ? <span>tube</span> : ""}
+        </a>
+      </div>
+
       <div
         className={`flex items-center gap-3 md:text-lg ${
           resize < 600 && search ? "flex-1" : "flex-initial"
