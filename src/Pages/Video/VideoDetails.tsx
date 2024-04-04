@@ -13,6 +13,7 @@ export default function VideoDetails({ id }: { id: string }) {
       setProgress(100);
       return fetchVideoById(id);
     },
+    refetchInterval: 1000 * 60 * 30,
     staleTime: Infinity,
   });
   if (isLoading) return <Spinner />;

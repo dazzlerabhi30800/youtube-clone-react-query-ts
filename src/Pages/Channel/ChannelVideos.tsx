@@ -7,6 +7,7 @@ export default function ChannelVideos({ id }: { id: string | undefined }) {
   const { data: videos, isLoading } = useQuery({
     queryKey: ["channelVideo", id],
     queryFn: () => id && channelVideo(id),
+    refetchInterval: 1000 * 60 * 40,
     staleTime: Infinity,
   });
   if (isLoading) return <Spinner />;

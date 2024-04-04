@@ -15,6 +15,7 @@ export default function HomePage() {
   } = useInfiniteQuery({
     queryKey: ["videos", category],
     initialPageParam: 1,
+    refetchInterval: 1000 * 60 * 5,
     queryFn: () => {
       setProgress(100);
       return fetchCategory(category);
@@ -33,7 +34,7 @@ export default function HomePage() {
         {videoData?.pages.map((page) =>
           page?.contents.map((video: videoType, index: number) => (
             <VideoComp key={index} data={video.video} show={true} />
-          )),
+          ))
         )}
       </div>
       {isFetchingNextPage ? (

@@ -13,6 +13,7 @@ export default function ChannelComp({ id }: { id: string | undefined }) {
       setProgress(100);
       return id && channelDetails(id);
     },
+    refetchInterval: 1000 * 60 * 40,
     staleTime: Infinity,
   });
   if (isLoading) return <Spinner />;

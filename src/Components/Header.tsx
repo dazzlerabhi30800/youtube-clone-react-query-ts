@@ -4,6 +4,7 @@ import { IoMdClose } from "react-icons/io";
 import Resize from "../Utils/Resize";
 import { useVideoContext } from "../Context/Context";
 import { FaSearch } from "react-icons/fa";
+
 export default function Header() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { resize } = Resize();

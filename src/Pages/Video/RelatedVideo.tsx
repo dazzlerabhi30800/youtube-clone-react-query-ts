@@ -7,6 +7,7 @@ export default function RelatedVideo({ id }: { id: string }) {
   const { data: relatedData, isLoading } = useQuery({
     queryKey: ["relatedVideo", id],
     queryFn: () => fetchRelatedVideo(id),
+    refetchInterval: 1000 * 60 * 40,
     staleTime: Infinity,
   });
   if (isLoading) return <Spinner />;

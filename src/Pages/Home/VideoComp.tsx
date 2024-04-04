@@ -30,10 +30,7 @@ export const VideoComp = ({
       </Link>
       <div className="flex items-center gap-3 px-2 mt-2">
         {show && (
-          <Link
-            to={`/channel/${author?.channelId}`}
-            className="cursor-pointer"
-          >
+          <Link to={`/channel/${author?.channelId}`} className="cursor-pointer">
             <img
               src={author.avatar[0]?.url}
               alt={author?.title}
