@@ -4,16 +4,19 @@ import { IoMdClose } from "react-icons/io";
 import Resize from "../Utils/Resize";
 import { useVideoContext } from "../Context/Context";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { resize } = Resize();
+  const navigate = useNavigate();
   const { search, setSearch, setCategory, setShowMenu, showMenu } =
     useVideoContext();
   const handleSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key !== "Enter") return;
     if (!inputRef?.current) return;
+    navigate("/");
     if (inputRef.current.value.length < 4) return;
     setCategory(inputRef.current.value);
     inputRef.current.value = "";

@@ -10,11 +10,9 @@ import LoadingBar from "react-top-loading-bar";
 import { useVideoContext } from "./Context/Context";
 import Channel from "./Pages/Channel/Channel";
 
-
 function App() {
   const { resize } = Resize();
   const { progress, setProgress } = useVideoContext();
-  console.log("hello");
   return (
     <>
       <LoadingBar
@@ -23,17 +21,17 @@ function App() {
         waitingTime={1000}
         onLoaderFinished={() => setProgress(0)}
       />
-      <Header />
-      <main className="flex">
-        <Router>
+      <Router>
+        <Header />
+        <main className="flex">
           {resize < 700 ? <NavMobile /> : <Navbar />}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/video/:id" element={<VideoPage />} />
             <Route path="/channel/:id" element={<Channel />} />
           </Routes>
-        </Router>
-      </main>
+        </main>
+      </Router>
     </>
   );
 }
