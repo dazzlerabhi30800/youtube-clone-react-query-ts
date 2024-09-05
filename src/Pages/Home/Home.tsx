@@ -29,12 +29,12 @@ export default function HomePage() {
 
   return (
     <section className="flex flex-col py-10 md:py-2 gap-8 items-center gap-8 flex-1 overflow-y-scroll scroll-smooth">
-      <div className="flex flex-wrap items-start gap-8 justify-center sm:justify-start w-full flex-1 p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-5 md:p-7items-start gap-8 justify-center md:justify-start w-full flex-1 p-2 md:p-5">
         {isLoading && <Spinner />}
         {videoData?.pages.map((page) =>
           page?.contents.map((video: videoType, index: number) => (
             <VideoComp key={index} data={video.video} show={true} />
-          ))
+          )),
         )}
       </div>
       {isFetchingNextPage ? (

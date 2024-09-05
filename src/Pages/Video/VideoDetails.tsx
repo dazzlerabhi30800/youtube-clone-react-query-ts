@@ -3,7 +3,7 @@ import { fetchVideoById, formatViews } from "../../Functions/FetchFunc";
 import Spinner from "../../Utils/Spinner";
 import { FaMessage, FaHeart, FaEye } from "react-icons/fa6";
 import { useVideoContext } from "../../Context/Context";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function VideoDetails({ id }: { id: string }) {
   const { setProgress } = useVideoContext();
@@ -24,7 +24,7 @@ export default function VideoDetails({ id }: { id: string }) {
       </h1>
       <p>{videoData?.description.substring(0, 300)} ...</p>
       <p className="font-semibold">
-        Uploaded :- {" "} 
+        Uploaded :-{" "}
         <span className="font-medium text-white">
           {new Date(videoData?.publishedDate).toLocaleString()}
         </span>
@@ -44,14 +44,15 @@ export default function VideoDetails({ id }: { id: string }) {
         </span>
       </div>
       {/* Author */}
-      <div className="flex items-center gap-5">
-      <Link to={`/channel/${videoData?.author.channelId}`} >
+      <Link
+        className="flex items-center gap-5"
+        to={`/channel/${videoData?.author.channelId}`}
+      >
         <img
           className="rounded-[50%] size-[55px] object-cover"
           src={videoData?.author?.avatar[0]?.url}
           alt={videoData?.author.title}
-          />
-          </Link>
+        />
         <div className="flex flex-col gap-1">
           <p className="text-white font-medium text-sm md:text-base">
             {videoData?.author.title}
@@ -60,12 +61,12 @@ export default function VideoDetails({ id }: { id: string }) {
             {videoData?.author?.stats?.subscribersText}
           </span>
         </div>
-          {videoData?.isLiveNow && (
-            <span className="bg-red-500 rounded-md py-[3px] px-2 text-sm text-white font-semibold">
-              Live
-            </span>
-          )}
-      </div>
+      </Link>
+      {videoData?.isLiveNow && (
+        <span className="bg-red-500 rounded-md py-[3px] px-2 text-sm text-white font-semibold">
+          Live
+        </span>
+      )}
     </div>
   );
 }

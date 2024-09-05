@@ -8,6 +8,7 @@ export default {
       },
       screens: {
         sm: "600px",
+        md: "900px",
       },
       fontSize: {
         small: "14px",

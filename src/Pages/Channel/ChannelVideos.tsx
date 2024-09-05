@@ -12,7 +12,7 @@ export default function ChannelVideos({ id }: { id: string | undefined }) {
   });
   if (isLoading) return <Spinner />;
   return (
-    <div className="flex flex-wrap justify-center md:justify-start p-10 w-full sm:w-[95%] mx-auto mt-4 mb-20 items-center gap-4 bg-neutral-900 sm:rounded-md shadow-md">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-5 md:p-7 w-full sm:w-[95%] mx-auto mt-4 mb-20 items-center gap-4 bg-neutral-900 sm:rounded-md shadow-md">
       {videos?.contents.map((video: videoType, index: number) => (
         <VideoComp key={index} data={video.video} show={false} />
       ))}

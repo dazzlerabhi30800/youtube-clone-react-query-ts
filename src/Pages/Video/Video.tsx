@@ -7,7 +7,7 @@ import VideoDetails from "./VideoDetails";
 export default function VideoPage() {
   const { id } = useParams();
   return (
-    <section className="video--section flex gap-10 items-center md:items-start md:justify-between py-8 px-4 md:p-6 w-full overflow-y-auto scroll-smooth">
+    <section className="video--section flex gap-10 items-center md:items-start md:justify-between py-8 px-4 md:p-6 w-full overflow-y-auto scroll-smooth md:flex-1">
       {!id && <Spinner />}
       {id && (
         <div className="flex flex-col gap-4 w-full flex-1">

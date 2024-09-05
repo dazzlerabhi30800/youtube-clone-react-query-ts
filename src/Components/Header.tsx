@@ -36,9 +36,9 @@ export default function Header() {
         )}
         <a
           href="/"
-          className="text-accent-color text-[2rem] md:text-[2.3rem] flex items-center gap-1 font-bold"
+          className="text-accent-color text-lg md:text-[2.3rem] flex items-center gap-1 font-bold"
         >
-          <img src="./logo.svg" alt="UTube" />
+          <img src="/logo.svg" className="h-5 md:h-auto" alt="" />
           {resize > 600 || !search ? <span>tube</span> : ""}
         </a>
       </div>
