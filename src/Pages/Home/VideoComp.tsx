@@ -21,7 +21,7 @@ export const VideoComp = ({
     <div className="flex flex-col w-fit p-2 w-full relative">
       <Link to={`/video/${videoId}`} className="w-full flex-1">
         <img
-          className="h-40 lg:h-48 xl:h-60 rounded-md object-cover w-full"
+          className="h-40 lg:h-48 xl:h-54 rounded-md object-cover w-full"
           src={thumbnails[1]?.url || thumbnails[0]?.url}
           loading="lazy"
           alt={title}
