@@ -16,13 +16,13 @@ export default function VideoDetails({ id }: { id: string }) {
     refetchInterval: 1000 * 60 * 30,
     staleTime: Infinity,
   });
-  if (isLoading) return <Spinner />;
+  if (isLoading && !videoData) return <Spinner />;
   return (
     <div className="flex flex-col gap-3 text-gray-300 px-2 my-6">
       <h1 className="font-bold text-lg md:text-xl text-white">
         {videoData?.title}
       </h1>
-      <p>{videoData?.description.substring(0, 300)} ...</p>
+      <p>{videoData?.description?.substring(0, 300)} ...</p>
       <p className="font-semibold">
         Uploaded :-{" "}
         <span className="font-medium text-white">
@@ -45,15 +45,19 @@ export default function VideoDetails({ id }: { id: string }) {
       </div>
       {/* Author */}
       <Link
-        className="flex items-center gap-5"
+        className="flex items-center gap-5 group"
         to={`/channel/${videoData?.author.channelId}`}
       >
         <img
           className="rounded-[50%] size-[55px] object-cover"
-          src={videoData?.author?.avatar[0]?.url}
+          src={
+            videoData?.author?.avatar.length > 0
+              ? videoData?.author?.avatar[0]?.url
+              : "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png"
+          }
           alt={videoData?.author.title}
         />
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 group-hover:underline">
           <p className="text-white font-medium text-sm md:text-base">
             {videoData?.author.title}
           </p>
